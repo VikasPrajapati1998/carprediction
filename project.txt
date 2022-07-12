@@ -1,0 +1,12 @@
+1. Create a new environment (carpredict)---3.7
+2. Working directory(launched jupyter notebook)
+
+CNG	Diesel	Petrol
+0	0		1
+1	0		0
+0	1		0
+
+pip freeze > requirements.txt
+
+D:\Project B.Tech. 4th Year ECE\Working Data_02\Live Car Price
+

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            background-color: lightslategray;
+            text-align: center;
+        }
+
+        #box{
+            color:maroon;
+            background-color: lightsalmon;
+            border: 3px solid sienna;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px 3px yellow;
+            text-shadow: 2px 2px 5px yellow;
+            position: absolute;
+        }
+        
+        
+        #fuel {
+            width: 200px;
+            height: 43px;
+            text-align: center;
+            border-radius: 14px;
+            font-size: 18px;
+            border: 2px solid purple;
+            top: 23px;
+            background-color: lightyellow;
+            color: brown;
+            font-weight: bold;
+            transition-duration: 3s;
+        }
+        
+        #fuel:hover {
+            background-color: coral;
+            color: cyan;
+            transition-duration: 3s;
+        }
+        
+        #research {
+            width: 200px;
+            height: 43px;
+            text-align: center;
+            border-radius: 14px;
+            font-size: 18px;
+            border: 2px solid purple;
+            top: 23px;
+            background-color: lightyellow;
+            color: brown;
+            font-weight: bold;
+            transition-duration: 3s;
+        }
+        
+        #research:hover {
+            background-color: coral;
+            color: cyan;
+            transition-duration: 3s;
+        }
+        
+        #resea {
+            width: 200px;
+            height: 43px;
+            text-align: center;
+            border-radius: 14px;
+            font-size: 18px;
+            border: 2px solid purple;
+            top: 23px;
+            background-color: lightyellow;
+            color: brown;
+            font-weight: bold;
+            transition-duration: 3s;
+        }
+        
+        #resea:hover {
+            background-color: coral;
+            color: cyan;
+            transition-duration: 3s;
+        }
+        
+        .sub {
+            width: 200px;
+            height: 50px;
+            color: Green;
+            background-color: plum;
+            text-align: center;
+            border: 5px solid purple;
+            border-radius: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            box-shadow: 0px 0px 5px 5px lightslategray;
+            text-shadow: 2px 2px 5px lightcyan;
+            transition-duration: 3s;
+        }
+        
+        .sub:hover {
+            background-color: lightyellow;
+            color: blue;
+            border-radius: 25px 0px 25px 0px;
+            box-shadow: 0px 0px 5px 5px lightseagreen;
+            transition-duration: 3s;
+
+        }
+        
+        #first {
+            border-radius: 15px;
+            height: 25px;
+            font-size: 20px;
+            text-align: center;
+            margin: 4px;
+        }
+        
+        #second {
+            border-radius: 15px;
+            height: 25px;
+            font-size: 20px;
+            text-align: center;
+            margin: 4px;
+        }
+        
+        #third {
+            border-radius: 15px;
+            height: 25px;
+            font-size: 20px;
+            text-align: center;
+            margin: 4px;
+        }
+        
+        #fourth {
+            border-radius: 15px;
+            height: 25px;
+            font-size: 20px;
+            text-align: center;
+            margin: 4px;
+        }
+        table, th, td {
+            background-color: skyblue;
+            border:  3px solid pink;
+            margin: 5px;
+            border-radius: 5px;
+            border-spacing: 5px;
+            box-shadow: 0px 0px 5px 5px black;
+        }
+        #tble {
+            background-color: lightgreen;
+            margin: 15px;
+            padding: 10px;
+            box-shadow: 0px 0px 5px 5px white;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="box">
+        <form action="{{ url_for('predict')}}" method="post">
+            <table align="center" id="tble">
+            <caption><h1 style="color:red;">Predictive Analysis</h1></caption>
+            <tr>
+                <th><h3>Year(When You Buy The Car?)</h3></th>
+                <td><input id="first" name="Year" type="number "></td>
+            </tr>
+            <tr>
+                <th><h3>What is the Showroom Price?(In Lakhs)</h3></th>
+                <td><input id="second" name="Present_Price" required="required"></td>
+            </tr>
+            <tr>
+                <th><h3>How Many Kilometers Drived?</h3></th>
+                <td><input id="third" name="Kms_Driven" required="required"></td>
+            </tr>
+            <tr>
+                <th><h3>How many owners previously had the car(0 or 1 or 2 or 3)?</h3></th>
+                <td><input id="fourth" name="Owner" required="required"></td>
+            </tr>
+            <tr>
+                <th><h3>What is the Fuel Type?</h3></th>
+                <td>
+                    <select name="Fuel_Type_Petrol" id="fuel" required="required">
+                        <option value="Petrol">Petrol</option>
+                        <option value="Diesel">Diesel</option>
+                        <option value="CNG">CNG</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th><h3>Are you a Dealer or Individual?</h3></th>
+                <td>
+                    <select name="Seller_Type_Individual" id="resea" required="required">
+                        <option value="Dealer">Dealer</option>
+                        <option value="Individual">Individual</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th><h3>Transmission Type?</h3></th>
+                <td>
+                    <select name="Transmission_Mannual" id="research" required="required">
+                        <option value="Mannual">Manual Car</option>
+                        <option value="Automatic">Automatic Car</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><button class="sub" type="submit ">Calculate Price</button></td>
+                <td><input type="Reset" vlaue="reset" type="reset" class="sub"></td>
+            </tr>
+
+            <tr>
+                <td colspan=2><h3>{{ prediction_text }}</h3></td>
+            </tr>
+            <tr>
+                <th colspan=2><h1>Thank You...!</h1></th>
+            </tr>
+            </table>
+        </form>
+    </div>
+</body>
+
+</html>
